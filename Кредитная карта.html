@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кредитка</title>
+    
+    <script>
+    $(document).ready(function() {
+    $('form').submit(function(e) {
+      e.preventDefault(); 
+      var filled = true;
+      $('input[type="text"]').each(function() {
+        if ($(this).val() === '') {
+          filled = false;
+          return false;
+        }
+      });
+  
+      if (filled) {
+        $('input[type="text"]').prop('disabled', true);
+        alert('Данные успешно отправлены');
+      } else {
+        alert('Не все поля заполнены');
+      }
+    });
+  });
+    </script>
+</head>
+<style>
+.container {
+	display: grid;
+    max-width: 751px;
+
+height: auto;
+   border: 1px solid black;
+   margin-left: 20px;
+   margin-top: 30px ;
+   background-image: url("Челси.jpg");
+   color: white;
+}
+
+.wrapper {
+    max-width: 751px;
+    margin: 0 auto;
+}
+
+.title-card {
+	position: relative;
+	text-align: center;
+	font-size: 18px; 
+	text-transform: uppercase;
+	font-family: cursive;
+    width: 401px;
+    height: auto;
+    background-color: #A0522D;
+    margin-top: 50px;
+    color: #000080;
+}
+
+form {
+	padding-bottom: 30px ;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+label {
+	margin: 10px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 18px;
+	color: #EE82EE;
+	font-family: cursive;
+}
+
+.expiry label {
+	display: inline;
+	margin: 5px;
+}
+
+.expiry input {
+	width: 70px;
+}
+
+input {
+	margin: 20px 0;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	font-size: 16px;
+	width: 300px;
+	max-width: 100%;
+	text-align: center;
+	outline: none;
+	font-family: cursive;
+}
+
+input[type="submit"] {
+	background-color: #A0522D;
+	color: #000080;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #8B4513;
+}
+</style>
+<body>
+  <div class="container">
+   <div class="title-card">
+      <p>credit card details</p>
+    </div> 
+	<form>
+		<label for="card-number">Card Number</label>
+		<input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456">
+
+		<label for="card-holder">Name On Card</label>
+		<input type="text" id="card-holder" name="card-holder" placeholder="Name Surname">
+
+     <div class="expiry">
+		 <label for="expiry-date">Expiry Date</label>
+		 <input type="text" id="expiry-date" name="expiry-date" placeholder="02">
+		 <input type="text" id="expiry-year" name="expiry-year" placeholder="2017">
+
+		 <label for="cvv">CVV</label>
+		 <input type="text" id="cvv" name="cvv" placeholder="***">
+		</div>
+
+		 <input type="submit" value="Отправить">
+	 </form> 
+  </div>
+ </body>
+ </html>
